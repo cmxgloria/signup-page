@@ -55,7 +55,7 @@ section {
   grid-template-columns: 2fr 1fr;
 }
 .left-wrapper {
-  max-width: 400px;
+  max-width: 440px;
   form {
     .input-field-wrapper,
     .input-field {
@@ -80,10 +80,10 @@ section {
       width: 100%;
       height: $base-height;
       font-size: $font-size-sm;
-      margin: 12px 0;
-      padding: 4px 14px;
+      margin-top: 24px;
+      padding: 4px 16px;
       transition: border-color 0.25s ease-in-out;
-      border: 1px solid $gray-400;
+      border: 1px solid $gray-300;
       border-radius: 5px;
 
       &::placeholder {
@@ -97,20 +97,20 @@ section {
 
       & + .floating-label {
         position: absolute;
-        top: 0.75em;
-        left: 0.75em;
+        top: 36px;
+        left: 8px;
         display: inline-block;
         width: auto;
         margin: 0;
-        padding: 4px 12px;
+        padding: 4px 16px;
         transition: transform 0.25s, opacity 0.25s, padding 0.25s ease-in-out;
         transform-origin: 0 0;
         color: transparent;
       }
       &:focus + .floating-label,
       &:not(:placeholder-shown) + .floating-label {
-        z-index: 999;
-        padding: 0.75em;
+        z-index: 2500;
+        padding: 8px;
         transform: translate(0, -2.2em) scale(0.9);
         color: $gray-600;
         background-color: $white;
@@ -119,22 +119,32 @@ section {
       &:focus::placeholder {
         color: transparent;
       }
-
-      &:invalid {
-        border-color: $red;
-      }
+      // &:invalid &:not(:placeholder-shown) + .floating-label {
+      //   color: $red;
+      // }
+      // &:invalid {
+      //   border-color: $red;
+      // }
     }
     .button {
       width: 100%;
       height: $base-height;
       font-size: $font-size-sm;
-      background-color: $blue;
+      border: none;
+      font-weight: 600;
       color: $white;
+      border-radius: 5px;
+      margin-top: 24px;
+      background-color: $blue;
+      &:disabled {
+        color: $gray-600;
+        background-color: $gray-200;
+      }
     }
     .field-icon {
       float: right;
-      margin-right: 14px;
-      margin-top: -56px;
+      margin-right: 16px;
+      margin-top: -32px;
       position: relative;
       z-index: 2;
     }
@@ -142,6 +152,13 @@ section {
     .msg {
       color: $gray-600;
       font-size: $font-size-xm;
+      padding: 8px 0;
+    }
+    .alert {
+      color: $red;
+    }
+    .hidden {
+      display: none;
     }
   }
 }
