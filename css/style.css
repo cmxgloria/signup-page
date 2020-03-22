@@ -27,6 +27,7 @@ body {
   white-space: normal;
   line-break: auto;
   color: #343a40;
+  background-color: #fff;
 }
 
 h2 {
@@ -59,22 +60,99 @@ section {
   max-width: 400px;
 }
 
-.left-wrapper form input {
+.left-wrapper form .input-field-wrapper,
+.left-wrapper form .input-field {
+  position: relative;
+}
+
+.left-wrapper form select {
+  -moz-appearance: none;
+  /* Firefox */
+  -webkit-appearance: none;
+  /* Safari and Chrome */
+  appearance: none;
+  background: #fff;
+  color: #6c757d;
+}
+
+.left-wrapper form .floating-label {
+  font-size: 0.875rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  user-select: none;
+  z-index: 1500;
+}
+
+.left-wrapper form .input-field {
   width: 100%;
   height: 48px;
   font-size: 0.875rem;
-  margin-bottom: 18px;
-  padding: 4px 12px;
+  margin: 12px 0;
+  padding: 4px 14px;
+  transition: border-color 0.25s ease-in-out;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
 }
 
-.left-wrapper form input:focus {
-  outline: 1;
-  box-shadow: 1;
+.left-wrapper form .input-field::placeholder {
+  color: #6c757d;
+}
+
+.left-wrapper form .input-field:focus {
+  outline: 0;
+  box-shadow: 0;
+}
+
+.left-wrapper form .input-field + .floating-label {
+  position: absolute;
+  top: 0.75em;
+  left: 0.75em;
+  display: inline-block;
+  width: auto;
+  margin: 0;
+  padding: 4px 12px;
+  transition: transform 0.25s, opacity 0.25s, padding 0.25s ease-in-out;
+  transform-origin: 0 0;
+  color: transparent;
+}
+
+.left-wrapper form .input-field:focus + .floating-label,
+.left-wrapper form .input-field:not(:placeholder-shown) + .floating-label {
+  z-index: 999;
+  padding: 0.75em;
+  transform: translate(0, -2.2em) scale(0.9);
+  color: #6c757d;
+  background-color: #fff;
+}
+
+.left-wrapper form .input-field:focus::placeholder {
+  color: transparent;
+}
+
+.left-wrapper form .input-field:invalid {
+  border-color: #dc3545;
 }
 
 .left-wrapper form .button {
   width: 100%;
   height: 48px;
+  font-size: 0.875rem;
+  background-color: #286efa;
+  color: #fff;
+}
+
+.left-wrapper form .field-icon {
+  float: right;
+  margin-right: 14px;
+  margin-top: -56px;
+  position: relative;
+  z-index: 2;
+}
+
+.left-wrapper form .msg {
+  color: #6c757d;
+  font-size: 0.75rem;
 }
 
 .right-wrapper {

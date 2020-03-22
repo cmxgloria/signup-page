@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign up</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
@@ -16,40 +20,64 @@
             <a href="#">Sign in</a>
           </div>
           <form action="" method="get">
-            <div>
-              <label for="name" class="floating-label">Your name</label>
+            <div class="input-field-wrapper">
               <input
+                class="input-field"
                 type="text"
                 id="name"
                 name="name"
                 placeholder="Your name"
               />
+              <label for="name" class="floating-label">Your name</label>
             </div>
-            <div>
+            <div class="input-field-wrapper">
               <input
-                type="text"
+                class="input-field"
+                type="email"
                 id="email"
                 name="email"
                 placeholder="Email address"
               />
+              <label for="email" class="floating-label">Email address</label>
+              <span
+                toggle="#password-field"
+                class="fa fa-eye field-icon"
+              ></span>
             </div>
-            <div>
-              <input
-                type="text"
+            <div class="input-field-wrapper">
+              <select
+                class="input-field"
                 id="userType"
+                name="userType"
                 placeholder="I would describe my user type as"
-              />
+              >
+                <option value="" selected disabled hidden
+                  >I would describe my user type as</option
+                >
+                <option value="developer">developer</option>
+                <option value="designer">designer</option>
+                <option value="employer">employer</option>
+              </select>
+              <span
+                toggle="#password-field"
+                class="fa fa-chevron-down field-icon"
+              ></span>
             </div>
-            <div>
+            <div class="input-field-wrapper">
               <input
+                class="input-field"
                 type="password"
                 id="password"
                 name="password"
                 placeholder="Password"
                 minlength="8"
-                required
               />
-              <div>Minimum 8 characters</div>
+              <label for="password" class="floating-label">Password</label>
+              <span
+                toggle="#password-field"
+                class="fa fa-eye field-icon"
+              ></span>
+              <div class="msg">Minimum 8 characters</div>
             </div>
             <button class="button" type="submit">Next</button>
             <div class="info">

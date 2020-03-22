@@ -29,14 +29,13 @@ body {
   white-space: normal;
   line-break: auto;
   color: $gray-800;
+  background-color: $white;
 }
 
 h2 {
   font-size: $h2-font-size;
 }
 
-// @media (min-width: $tablet) {
-// }
 a {
   color: $blue;
   font-weight: 600;
@@ -58,24 +57,91 @@ section {
 .left-wrapper {
   max-width: 400px;
   form {
-    input {
+    .input-field-wrapper,
+    .input-field {
+      position: relative;
+    }
+    select {
+      -moz-appearance: none; /* Firefox */
+      -webkit-appearance: none; /* Safari and Chrome */
+      appearance: none;
+      background: $white;
+      color: $gray-600;
+    }
+    .floating-label {
+      font-size: $font-size-sm;
+      position: absolute;
+      top: 0;
+      left: 0;
+      user-select: none;
+      z-index: 1500;
+    }
+    .input-field {
       width: 100%;
       height: $base-height;
       font-size: $font-size-sm;
-      margin-bottom: 18px;
-      padding: 4px 12px;
+      margin: 12px 0;
+      padding: 4px 14px;
+      transition: border-color 0.25s ease-in-out;
+      border: 1px solid $gray-400;
+      border-radius: 5px;
+
+      &::placeholder {
+        color: $gray-600;
+      }
 
       &:focus {
-        outline: 1;
-        box-shadow: 1;
+        outline: 0;
+        box-shadow: 0;
       }
-      // &::placeholder {
-      //   padding: 6px;
-      // }
+
+      & + .floating-label {
+        position: absolute;
+        top: 0.75em;
+        left: 0.75em;
+        display: inline-block;
+        width: auto;
+        margin: 0;
+        padding: 4px 12px;
+        transition: transform 0.25s, opacity 0.25s, padding 0.25s ease-in-out;
+        transform-origin: 0 0;
+        color: transparent;
+      }
+      &:focus + .floating-label,
+      &:not(:placeholder-shown) + .floating-label {
+        z-index: 999;
+        padding: 0.75em;
+        transform: translate(0, -2.2em) scale(0.9);
+        color: $gray-600;
+        background-color: $white;
+      }
+
+      &:focus::placeholder {
+        color: transparent;
+      }
+
+      &:invalid {
+        border-color: $red;
+      }
     }
     .button {
       width: 100%;
       height: $base-height;
+      font-size: $font-size-sm;
+      background-color: $blue;
+      color: $white;
+    }
+    .field-icon {
+      float: right;
+      margin-right: 14px;
+      margin-top: -56px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .msg {
+      color: $gray-600;
+      font-size: $font-size-xm;
     }
   }
 }

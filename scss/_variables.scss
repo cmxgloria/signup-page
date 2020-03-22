@@ -1,6 +1,7 @@
 // color
 $white: #fff !default;
 $blue: #286efa !default;
+$red: #dc3545 !default;
 
 $white: #fff !default;
 $gray-400: #ced4da !default;
@@ -23,7 +24,7 @@ $font-family-base: $font-family-sans-serif !default;
 $font-size-base: 1rem !default; // Assumes the browser default, typically `16px`
 $font-size-lg: $font-size-base * 1.25 !default;
 $font-size-sm: $font-size-base * 0.875 !default;
-$font-size-xm: $font-size-base * 0.5 !default;
+$font-size-xm: $font-size-base * 0.75 !default;
 $h1-font-size: $font-size-base * 2.5 !default;
 $h2-font-size: $font-size-base * 2 !default;
 $h3-font-size: $font-size-base * 1.75 !default;
