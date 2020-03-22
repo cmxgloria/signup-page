@@ -1,0 +1,32 @@
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+$tablet: 768px;
+
+// @media (min-width: $tablet) {
+// }
+
+section {
+  display: flex;
+  justify-content: center;
+}
+.app {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+.left-wrapper {
+  max-width: 400px;
+}
+.right-wrapper {
+  max-width: 300px;
+}

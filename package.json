@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "scss": "node-sass — watch scss -o css"
+    "scss": "node-sass -w scss -o css --output-style expanded"
   },
   "keywords": [],
   "author": "",
