@@ -30,6 +30,7 @@ body {
   line-break: auto;
   color: $gray-800;
   background-color: $white;
+  margin: 0;
 }
 
 h2 {
@@ -40,132 +41,146 @@ a {
   color: $blue;
   font-weight: 600;
 }
-section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-.right-section {
-  background-color: $blue;
-  color: $white;
-}
 .app {
   display: grid;
   grid-template-columns: 2fr 1fr;
-}
-.left-wrapper {
-  max-width: 440px;
-  form {
-    .input-field-wrapper,
-    .input-field {
-      position: relative;
-    }
-    select {
-      -moz-appearance: none; /* Firefox */
-      -webkit-appearance: none; /* Safari and Chrome */
-      appearance: none;
-      background: $white;
-      color: $gray-600;
-    }
-    .floating-label {
-      font-size: $font-size-sm;
-      position: absolute;
-      top: 0;
-      left: 0;
-      user-select: none;
-      z-index: 1500;
-    }
-    .input-field {
-      width: 100%;
-      height: $base-height;
-      font-size: $font-size-sm;
-      margin-top: 24px;
-      padding: 4px 16px;
-      transition: border-color 0.25s ease-in-out;
-      border: 1px solid $gray-300;
-      border-radius: 5px;
 
-      &::placeholder {
-        color: $gray-600;
-      }
+  @media (max-width: $tablet) {
+    display: block;
+  }
 
-      &:focus {
-        outline: 0;
-        box-shadow: 0;
-      }
+  section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 16px;
 
-      & + .floating-label {
-        position: absolute;
-        top: 36px;
-        left: 8px;
-        display: inline-block;
-        width: auto;
-        margin: 0;
-        padding: 4px 16px;
-        transition: transform 0.25s, opacity 0.25s, padding 0.25s ease-in-out;
-        transform-origin: 0 0;
-        color: transparent;
-      }
-      &:focus + .floating-label,
-      &:not(:placeholder-shown) + .floating-label {
-        z-index: 2500;
-        padding: 8px;
-        transform: translate(0, -2.2em) scale(0.9);
-        color: $gray-600;
-        background-color: $white;
-      }
-
-      &:focus::placeholder {
-        color: transparent;
-      }
-      // &:invalid &:not(:placeholder-shown) + .floating-label {
-      //   color: $red;
-      // }
-      // &:invalid {
-      //   border-color: $red;
-      // }
-    }
-    .button {
-      width: 100%;
-      height: $base-height;
-      font-size: $font-size-sm;
-      border: none;
-      font-weight: 600;
-      color: $white;
-      border-radius: 5px;
-      margin-top: 24px;
-      background-color: $blue;
-      &:disabled {
-        color: $gray-600;
-        background-color: $gray-200;
-      }
-    }
-    .field-icon {
-      float: right;
-      margin-right: 16px;
-      margin-top: -32px;
-      position: relative;
-      z-index: 2;
-    }
-
-    .msg {
-      color: $gray-600;
-      font-size: $font-size-xm;
-      padding: 8px 0;
-    }
-    .alert {
-      color: $red;
-    }
-    .hidden {
-      display: none;
+    @media (max-width: $tablet) {
+      height: auto;
     }
   }
-}
-.right-wrapper {
-  max-width: 300px;
-}
-.info {
-  font-size: $font-size-sm;
-  margin: $base-height 0;
+  .right-section {
+    background-color: $blue;
+    color: $white;
+  }
+
+  .left-wrapper {
+    max-width: 440px;
+    form {
+      .hint {
+        color: $gray-600;
+        font-size: $font-size-xm;
+        padding-top: 8px;
+      }
+      .msg {
+        @extend .hint;
+        color: $red;
+        display: none;
+      }
+      .input-field-wrapper,
+      .input-field {
+        position: relative;
+      }
+      select {
+        -moz-appearance: none; /* Firefox */
+        -webkit-appearance: none; /* Safari and Chrome */
+        appearance: none;
+        background: $white;
+        color: $gray-600;
+      }
+      .floating-label {
+        font-size: $font-size-sm;
+        position: absolute;
+        top: 0;
+        left: 0;
+        user-select: none;
+        z-index: 1500;
+      }
+      .input-field {
+        width: 100%;
+        height: $base-height;
+        font-size: $font-size-sm;
+        margin-top: 24px;
+        padding: 4px 16px;
+        transition: border-color 0.25s ease-in-out;
+        border: 1px solid $gray-300;
+        border-radius: 5px;
+
+        &::placeholder {
+          color: $gray-600;
+        }
+
+        &:focus {
+          outline: 0;
+          box-shadow: 0;
+        }
+
+        & + .floating-label {
+          position: absolute;
+          top: 36px;
+          left: 8px;
+          display: inline-block;
+          width: auto;
+          margin: 0;
+          padding: 4px 16px;
+          transition: transform 0.25s, opacity 0.25s, padding 0.25s ease-in-out;
+          transform-origin: 0 0;
+          color: transparent;
+        }
+        &:focus + .floating-label,
+        &:not(:placeholder-shown) + .floating-label {
+          z-index: 2500;
+          padding: 8px;
+          transform: translate(0, -2.2em) scale(0.9);
+          color: $gray-600;
+          background-color: $white;
+        }
+        &:focus::placeholder {
+          color: transparent;
+        }
+        // when both classes .input-field and invalid exist
+        &.invalid {
+          border-color: $red;
+
+          &:focus + .floating-label {
+            color: $red;
+          }
+          & ~ .msg {
+            display: block;
+          }
+        }
+      }
+
+      .button {
+        width: 100%;
+        height: $base-height;
+        font-size: $font-size-sm;
+        border: none;
+        font-weight: 600;
+        color: $white;
+        border-radius: 5px;
+        margin-top: 24px;
+        background-color: $blue;
+        &:disabled {
+          color: $gray-600;
+          background-color: $gray-200;
+        }
+      }
+      .field-icon {
+        float: right;
+        margin-right: 16px;
+        margin-top: -32px;
+        position: relative;
+        z-index: 2;
+      }
+    }
+  }
+  .right-wrapper {
+    max-width: 320px;
+  }
+  .info {
+    font-size: $font-size-sm;
+    margin: $base-height/2 0;
+  }
 }

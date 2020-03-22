@@ -27,8 +27,12 @@
                 id="name"
                 name="name"
                 placeholder="Your name"
+                required
               />
               <label for="name" class="floating-label">Your name</label>
+              <div id="name-msg" class="msg">
+                Name is required
+              </div>
             </div>
             <div class="input-field-wrapper">
               <input
@@ -40,13 +44,10 @@
                 required
               />
               <label for="email" class="floating-label">Email address</label>
-              <div class="msg alert hidden">
+              <div class="msg">
                 Please enter a valid email address
               </div>
-              <span
-                toggle="#password-field"
-                class="fa fa-eye field-icon"
-              ></span>
+              <span class="fa fa-eye field-icon"></span>
             </div>
             <div class="input-field-wrapper">
               <select
@@ -63,10 +64,10 @@
                 <option value="designer">designer</option>
                 <option value="employer">employer</option>
               </select>
-              <span
-                toggle="#password-field"
-                class="fa fa-chevron-down field-icon"
-              ></span>
+              <span class="fa fa-chevron-down field-icon"></span>
+              <div class="msg">
+                Please select a user type
+              </div>
             </div>
             <div class="input-field-wrapper">
               <input
@@ -78,11 +79,11 @@
                 minlength="8"
               />
               <label for="password" class="floating-label">Password</label>
-              <span
-                toggle="#password-field"
-                class="fa fa-eye field-icon"
-              ></span>
-              <div class="msg">Minimum 8 characters</div>
+              <span class="fa fa-eye field-icon"></span>
+              <div class="hint">Minimum 8 characters</div>
+              <div class="msg">
+                Please enter minimum 8 characters
+              </div>
             </div>
             <button disabled class="button" type="submit">Next</button>
             <div class="info">

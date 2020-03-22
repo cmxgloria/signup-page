@@ -28,6 +28,7 @@ body {
   line-break: auto;
   color: #343a40;
   background-color: #fff;
+  margin: 0;
 }
 
 h2 {
@@ -39,33 +40,57 @@ a {
   font-weight: 600;
 }
 
-section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-.right-section {
-  background-color: #286efa;
-  color: #fff;
-}
-
 .app {
   display: grid;
   grid-template-columns: 2fr 1fr;
 }
 
-.left-wrapper {
+@media (max-width: 768px) {
+  .app {
+    display: block;
+  }
+}
+
+.app section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 16px;
+}
+
+@media (max-width: 768px) {
+  .app section {
+    height: auto;
+  }
+}
+
+.app .right-section {
+  background-color: #286efa;
+  color: #fff;
+}
+
+.app .left-wrapper {
   max-width: 440px;
 }
 
-.left-wrapper form .input-field-wrapper,
-.left-wrapper form .input-field {
+.app .left-wrapper form .hint, .app .left-wrapper form .msg {
+  color: #6c757d;
+  font-size: 0.75rem;
+  padding-top: 8px;
+}
+
+.app .left-wrapper form .msg {
+  color: #ed193a;
+  display: none;
+}
+
+.app .left-wrapper form .input-field-wrapper,
+.app .left-wrapper form .input-field {
   position: relative;
 }
 
-.left-wrapper form select {
+.app .left-wrapper form select {
   -moz-appearance: none;
   /* Firefox */
   -webkit-appearance: none;
@@ -75,7 +100,7 @@ section {
   color: #6c757d;
 }
 
-.left-wrapper form .floating-label {
+.app .left-wrapper form .floating-label {
   font-size: 0.875rem;
   position: absolute;
   top: 0;
@@ -84,7 +109,7 @@ section {
   z-index: 1500;
 }
 
-.left-wrapper form .input-field {
+.app .left-wrapper form .input-field {
   width: 100%;
   height: 48px;
   font-size: 0.875rem;
@@ -95,16 +120,16 @@ section {
   border-radius: 5px;
 }
 
-.left-wrapper form .input-field::placeholder {
+.app .left-wrapper form .input-field::placeholder {
   color: #6c757d;
 }
 
-.left-wrapper form .input-field:focus {
+.app .left-wrapper form .input-field:focus {
   outline: 0;
   box-shadow: 0;
 }
 
-.left-wrapper form .input-field + .floating-label {
+.app .left-wrapper form .input-field + .floating-label {
   position: absolute;
   top: 36px;
   left: 8px;
@@ -117,8 +142,8 @@ section {
   color: transparent;
 }
 
-.left-wrapper form .input-field:focus + .floating-label,
-.left-wrapper form .input-field:not(:placeholder-shown) + .floating-label {
+.app .left-wrapper form .input-field:focus + .floating-label,
+.app .left-wrapper form .input-field:not(:placeholder-shown) + .floating-label {
   z-index: 2500;
   padding: 8px;
   transform: translate(0, -2.2em) scale(0.9);
@@ -126,11 +151,23 @@ section {
   background-color: #fff;
 }
 
-.left-wrapper form .input-field:focus::placeholder {
+.app .left-wrapper form .input-field:focus::placeholder {
   color: transparent;
 }
 
-.left-wrapper form .button {
+.app .left-wrapper form .input-field.invalid {
+  border-color: #ed193a;
+}
+
+.app .left-wrapper form .input-field.invalid:focus + .floating-label {
+  color: #ed193a;
+}
+
+.app .left-wrapper form .input-field.invalid ~ .msg {
+  display: block;
+}
+
+.app .left-wrapper form .button {
   width: 100%;
   height: 48px;
   font-size: 0.875rem;
@@ -142,12 +179,12 @@ section {
   background-color: #286efa;
 }
 
-.left-wrapper form .button:disabled {
+.app .left-wrapper form .button:disabled {
   color: #6c757d;
   background-color: #e9ecef;
 }
 
-.left-wrapper form .field-icon {
+.app .left-wrapper form .field-icon {
   float: right;
   margin-right: 16px;
   margin-top: -32px;
@@ -155,25 +192,11 @@ section {
   z-index: 2;
 }
 
-.left-wrapper form .msg {
-  color: #6c757d;
-  font-size: 0.75rem;
-  padding: 8px 0;
+.app .right-wrapper {
+  max-width: 320px;
 }
 
-.left-wrapper form .alert {
-  color: #ed193a;
-}
-
-.left-wrapper form .hidden {
-  display: none;
-}
-
-.right-wrapper {
-  max-width: 300px;
-}
-
-.info {
+.app .info {
   font-size: 0.875rem;
-  margin: 48px 0;
+  margin: 24px 0;
 }
