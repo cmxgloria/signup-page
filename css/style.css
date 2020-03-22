@@ -12,9 +12,42 @@ html {
   box-sizing: inherit;
 }
 
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-style: normal;
+  text-align: left;
+  text-align: start;
+  line-height: 1.5;
+  text-decoration: none;
+  text-shadow: none;
+  text-transform: none;
+  letter-spacing: normal;
+  word-break: normal;
+  word-spacing: normal;
+  white-space: normal;
+  line-break: auto;
+  color: #343a40;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+a {
+  color: #286efa;
+  font-weight: 600;
+}
+
 section {
   display: flex;
   justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.right-section {
+  background-color: #286efa;
+  color: #fff;
 }
 
 .app {
@@ -26,6 +59,29 @@ section {
   max-width: 400px;
 }
 
+.left-wrapper form input {
+  width: 100%;
+  height: 48px;
+  font-size: 0.875rem;
+  margin-bottom: 18px;
+  padding: 4px 12px;
+}
+
+.left-wrapper form input:focus {
+  outline: 1;
+  box-shadow: 1;
+}
+
+.left-wrapper form .button {
+  width: 100%;
+  height: 48px;
+}
+
 .right-wrapper {
   max-width: 300px;
+}
+
+.info {
+  font-size: 0.875rem;
+  margin: 48px 0;
 }
